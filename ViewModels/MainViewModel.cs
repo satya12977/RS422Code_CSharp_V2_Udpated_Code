@@ -15,9 +15,6 @@ namespace ANVESHA_TCRX_HEALTH_STATUS_GUI_V2.ViewModels
         public PortViewModel Port1 { get; private set; }
         public PortViewModel Port2 { get; private set; }
 
-        // ── Offline Compare ViewModel ──────────────────────────────────────
-        public OfflineCompareViewModel OfflineCompare { get; private set; }
-
         // ── Backing fields ─────────────────────────────────────────────────
         private string _uptimeText = "00:00:00";
         private string _appStatus = "Ready — Configure ports then click CONNECT BOTH";
@@ -77,7 +74,7 @@ namespace ANVESHA_TCRX_HEALTH_STATUS_GUI_V2.ViewModels
         {
             Port1 = new PortViewModel(1, dispatcher);
             Port2 = new PortViewModel(2, dispatcher);
-            OfflineCompare = new OfflineCompareViewModel();
+
             _startTime = DateTime.Now;
 
             // Subscribe port events

@@ -62,7 +62,6 @@
     <Compile Include="Models\RxDataParser.cs" />
     <Compile Include="Models\StringEventArgs.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\OfflineCompareViewModel.cs" />
     <Compile Include="ViewModels\PortViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

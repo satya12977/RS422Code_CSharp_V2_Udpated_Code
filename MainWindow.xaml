@@ -18,6 +18,9 @@
         <conv:InverseBoolConverter          x:Key="InvBoolConv"/>
         <conv:BoolToVisibilityConverter     x:Key="BoolToVisConv"/>
 
+
+  
+        
         <!-- ═══════════════════════════════════════════════════════════
              TAB CONTROL STYLE
         ════════════════════════════════════════════════════════════════ -->
@@ -161,10 +164,10 @@
              R2  CONTROL PANEL
         ════════════════════════════════════════════════════════════════ -->
         <Border Grid.Row="2" Margin="6,4,6,0"
-                Background="{StaticResource MidBgBrush}"
-                BorderBrush="{StaticResource AccentBrush}"
-                BorderThickness="1" CornerRadius="4"
-                Padding="12,10">
+        Background="{StaticResource MidBgBrush}"
+        BorderBrush="{StaticResource AccentBrush}"
+        BorderThickness="1" CornerRadius="4"
+        Padding="12,10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -175,20 +178,20 @@
                 <!-- Section label -->
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
                     <TextBlock Text="DUAL PORT CONFIGURATION  &amp;  CONTROL"
-                               FontSize="12" FontWeight="Bold"
-                               Foreground="{StaticResource AccentBrush}"/>
+                       FontSize="12" FontWeight="Bold"
+                       Foreground="{StaticResource AccentBrush}"/>
 
                     <Border Background="#FF0D1526"
-                            BorderBrush="{StaticResource PanelBgBrush}"
-                            BorderThickness="1" CornerRadius="4"
-                            Padding="10,2" Margin="20,0,0,0">
+                    BorderBrush="{StaticResource PanelBgBrush}"
+                    BorderThickness="1" CornerRadius="4"
+                    Padding="10,2" Margin="20,0,0,0">
                         <StackPanel Orientation="Horizontal">
                             <Ellipse Width="10" Height="10" Margin="0,0,6,0"
-                                     Fill="{Binding IsAcquiring, Converter={StaticResource ConnBrushConv}}"/>
+                             Fill="{Binding IsAcquiring, Converter={StaticResource ConnBrushConv}}"/>
                             <TextBlock Text="{Binding AcquisitionStatus}"
-                                       FontSize="11" FontWeight="Bold" FontFamily="Consolas"
-                                       Foreground="{Binding IsAcquiring, Converter={StaticResource ConnBrushConv}}"
-                                       VerticalAlignment="Center"/>
+                               FontSize="11" FontWeight="Bold" FontFamily="Consolas"
+                               Foreground="{Binding IsAcquiring, Converter={StaticResource ConnBrushConv}}"
+                               VerticalAlignment="Center"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>
@@ -215,57 +218,71 @@
 
                     <!-- PORT 1 -->
                     <TextBlock Grid.Column="0" Text="PORT 1:" FontSize="11" FontWeight="Bold"
-                               Foreground="{StaticResource GreenBrush}"
-                               VerticalAlignment="Center" Margin="0,0,6,0"/>
+                       Foreground="{StaticResource GreenBrush}"
+                       VerticalAlignment="Center" Margin="0,0,6,0"/>
                     <ComboBox Grid.Column="1" Style="{StaticResource DarkComboBox}"
-                              ItemsSource="{Binding Port1.AvailablePorts}"
-                              SelectedItem="{Binding Port1.SelectedPort}"
-                              IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"/>
+                      ItemsSource="{Binding Port1.AvailablePorts}"
+                      SelectedItem="{Binding Port1.SelectedPort}"
+                      IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"/>
                     <TextBlock Grid.Column="3" Text="Baud:" FontSize="10"
-                               Foreground="{StaticResource SubTextBrush}"
-                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                       Foreground="{StaticResource SubTextBrush}"
+                       VerticalAlignment="Center" Margin="0,0,4,0"/>
                     <ComboBox Grid.Column="4" Style="{StaticResource DarkComboBox}"
-                              ItemsSource="{Binding Port1.BaudRates}"
-                              SelectedItem="{Binding Port1.SelectedBaudRate}"
-                              IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"/>
+                      ItemsSource="{Binding Port1.BaudRates}"
+                      SelectedItem="{Binding Port1.SelectedBaudRate}"
+                      IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"/>
 
                     <!-- Divider -->
                     <Rectangle Grid.Column="6" Width="2"
-                               Fill="{StaticResource PanelBgBrush}" Margin="0,2"/>
+                       Fill="{StaticResource PanelBgBrush}" Margin="0,2"/>
 
                     <!-- PORT 2 -->
                     <TextBlock Grid.Column="8" Text="PORT 2:" FontSize="11" FontWeight="Bold"
-                               Foreground="{StaticResource YellowBrush}"
-                               VerticalAlignment="Center" Margin="0,0,6,0"/>
+                       Foreground="{StaticResource YellowBrush}"
+                       VerticalAlignment="Center" Margin="0,0,6,0"/>
                     <ComboBox Grid.Column="9" Style="{StaticResource DarkComboBox}"
-                              ItemsSource="{Binding Port2.AvailablePorts}"
-                              SelectedItem="{Binding Port2.SelectedPort}"
-                              IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"/>
+                      ItemsSource="{Binding Port2.AvailablePorts}"
+                      SelectedItem="{Binding Port2.SelectedPort}"
+                      IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"/>
                     <TextBlock Grid.Column="11" Text="Baud:" FontSize="10"
-                               Foreground="{StaticResource SubTextBrush}"
-                               VerticalAlignment="Center" Margin="0,0,4,0"/>
+                       Foreground="{StaticResource SubTextBrush}"
+                       VerticalAlignment="Center" Margin="0,0,4,0"/>
                     <ComboBox Grid.Column="12" Style="{StaticResource DarkComboBox}"
-                              ItemsSource="{Binding Port2.BaudRates}"
-                              SelectedItem="{Binding Port2.SelectedBaudRate}"
-                              IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"/>
+                      ItemsSource="{Binding Port2.BaudRates}"
+                      SelectedItem="{Binding Port2.SelectedBaudRate}"
+                      IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"/>
 
                     <!-- Action buttons -->
                     <StackPanel Grid.Column="14" Orientation="Horizontal"
-                                HorizontalAlignment="Right" VerticalAlignment="Center">
+                        HorizontalAlignment="Right" VerticalAlignment="Center">
                         <Button Content="⟳  REFRESH" Style="{StaticResource ProfessionalButton}"
-                                Width="100" Margin="0,0,8,0"
-                                IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"
-                                Click="BtnRefresh_Click" ToolTip="Rescan COM ports"/>
+                        Width="100" Margin="0,0,8,0"
+                        IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"
+                        Click="BtnRefresh_Click" ToolTip="Rescan COM ports"/>
+
                         <Button Content="▶  CONNECT BOTH" Style="{StaticResource ConnectButton}"
-                                Width="140" FontSize="12" FontWeight="Bold" Margin="0,0,8,0"
-                                IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"
-                                Click="BtnConnect_Click" ToolTip="Connect both ports"/>
+                        Width="140" FontSize="12" FontWeight="Bold" Margin="0,0,8,0"
+                        IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"
+                        Click="BtnConnect_Click" ToolTip="Connect both ports"/>
+
                         <Button Content="■  DISCONNECT BOTH" Style="{StaticResource DisconnectButton}"
-                                Width="160" FontSize="12" FontWeight="Bold" Margin="0,0,8,0"
-                                IsEnabled="{Binding IsAcquiring}"
-                                Click="BtnDisconnect_Click" ToolTip="Disconnect both ports"/>
+                        Width="160" FontSize="12" FontWeight="Bold" Margin="0,0,8,0"
+                        IsEnabled="{Binding IsAcquiring}"
+                        Click="BtnDisconnect_Click" ToolTip="Disconnect both ports"/>
+
+                        <!-- NEW BUTTONS -->
+                        <Button Content="▶  START ALL" Style="{StaticResource ConnectButton}"
+                        Width="130" FontSize="12" FontWeight="Bold" Margin="0,0,8,0"
+                        IsEnabled="{Binding IsAcquiring, Converter={StaticResource InvBoolConv}}"
+                        Click="BtnStartAll_Click" ToolTip="Connect ports and start acquisition"/>
+
+                        <Button Content="■  STOP ALL" Style="{StaticResource DisconnectButton}"
+                        Width="120" FontSize="12" FontWeight="Bold" Margin="0,0,8,0"
+                        IsEnabled="{Binding IsAcquiring}"
+                        Click="BtnStopAll_Click" ToolTip="Stop acquisition and disconnect"/>
+
                         <Button Content="✕  CLEAR LOGS" Style="{StaticResource ProfessionalButton}"
-                                Width="120" Click="BtnClearAll_Click" ToolTip="Clear all logs"/>
+                        Width="120" Click="BtnClearAll_Click" ToolTip="Clear all logs"/>
                     </StackPanel>
                 </Grid>
             </Grid>
@@ -995,310 +1012,908 @@
                 </Grid>
             </TabItem>
 
-            <!-- ═══════════════════════════════════════════════════════════
-     TAB 5: OFFLINE COMPARE (FIXED WITH SCROLLVIEWER & PROGRESS)
-════════════════════════════════════════════════════════════ -->
-            <TabItem Header="📁 OFFLINE COMPARE" Style="{StaticResource DarkTabItem}">
-                <Border Background="{StaticResource MidBgBrush}"
-            BorderBrush="{StaticResource PanelBgBrush}"
-            BorderThickness="1" CornerRadius="4" Margin="4">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Disabled">
-                        <Grid Margin="0,0,0,10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <!-- Header -->
-                                <RowDefinition Height="Auto"/>
-                                <!-- Mode selection -->
-                                <RowDefinition Height="Auto"/>
-                                <!-- File selection -->
-                                <RowDefinition Height="Auto"/>
-                                <!-- Control buttons -->
-                                <RowDefinition Height="Auto"/>
-                                <!-- Progress bar -->
-                                <RowDefinition Height="400"/>
-                                <!-- Results (fixed height) -->
-                                <RowDefinition Height="Auto"/>
-                                <!-- Status bar -->
-                            </Grid.RowDefinitions>
 
-                            <!-- ══════════════════════════════════════════════════════════════
-                     HEADER
-                ═══════════════════════════════════════════════════════════════ -->
-                            <Border Grid.Row="0" Background="{StaticResource PanelBgBrush}"
-                        CornerRadius="4,4,0,0" Padding="12,10">
+            <!-- ======================================== -->
+            <!-- TAB 6: ENHANCED OFFLINE COMPARE         -->
+            <!-- ======================================== -->
+            <TabItem Header="📂 OFFLINE COMPARE"
+         Style="{StaticResource DarkTabItem}">
+                <Grid Background="#FF0A0A1A" Margin="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!-- Header -->
+                        <RowDefinition Height="*"/>
+                        <!-- File Selection + Results (scrollable) -->
+                    </Grid.RowDefinitions>
+
+                    <!-- ============================== -->
+                    <!-- Header Section                 -->
+                    <!-- ============================== -->
+                    <Border Grid.Row="0"
+                Background="#FF0F3460"
+                CornerRadius="8"
+                Padding="15,10"
+                Margin="5,5,5,3">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                                <TextBlock Text="⚖ OFFLINE FILE COMPARISON WITH EXPECTED COMMANDS"
+                               Foreground="#FF00D4FF"
+                               FontSize="14"
+                               FontWeight="Bold"/>
+                                <TextBlock Text="Compare expected commands against MAIN and REDUNDANT log files"
+                               Foreground="#FF95A5A6"
+                               FontSize="11"
+                               Margin="0,2,0,0"/>
+                            </StackPanel>
+
+                            <!-- Quick Status -->
+                            <Border Grid.Column="1"
+                        Background="#FF0A0A1A"
+                        BorderBrush="#FF0F3460"
+                        BorderThickness="1"
+                        CornerRadius="6"
+                        Padding="12,6"
+                        VerticalAlignment="Center">
                                 <StackPanel>
-                                    <TextBlock Text="OFFLINE LOG FILE COMPARISON" FontSize="14"
-                                   FontWeight="Bold" Foreground="{StaticResource AccentBrush}"/>
-                                    <TextBlock Text="Compare expected 8-byte commands with actual log files • Loop detection • Multi-file fallback"
-                                   FontSize="11" Foreground="{StaticResource SubTextBrush}"/>
+                                    <TextBlock Text="FILE STATUS"
+                                   Foreground="#FF95A5A6"
+                                   FontSize="10"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"/>
+                                    <TextBlock x:Name="txtOfflineFilesStatus"
+                                   Text="0 / 3 selected"
+                                   Foreground="#FFFF8C00"
+                                   FontSize="14"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </Border>
+                        </Grid>
+                    </Border>
 
-                            <!-- ══════════════════════════════════════════════════════════════
-                     MODE SELECTION
-                ═══════════════════════════════════════════════════════════════ -->
-                            <Border Grid.Row="1" Background="#FF0D1526" Margin="10,10,10,0"
-                        BorderBrush="{StaticResource AccentBrush}"
-                        BorderThickness="1" CornerRadius="4" Padding="12,8">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="COMPARISON MODE:" FontSize="11" FontWeight="Bold"
-                                   Foreground="{StaticResource AccentBrush}"
-                                   VerticalAlignment="Center" Margin="0,0,15,0"/>
+                    <!-- ============================== -->
+                    <!-- MAIN CONTENT AREA              -->
+                    <!-- Split: Left=File Selection     -->
+                    <!--        Right=Results           -->
+                    <!-- ============================== -->
+                    <Grid Grid.Row="1" Margin="5,3,5,5">
+                        <Grid.ColumnDefinitions>
+                            <!-- File Selection Panel (fixed width, scrollable) -->
+                            <ColumnDefinition Width="420"/>
+                            <ColumnDefinition Width="5"/>
+                            <!-- Results Panel (fills remaining) -->
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                                    <RadioButton Content="Single File (Loop Detection: 320 commands/loop)"
-                                     IsChecked="{Binding OfflineCompare.UseSingleFileMode}"
-                                     Foreground="{StaticResource TextBrush}"
-                                     FontSize="11" Margin="0,0,20,0"
-                                     VerticalAlignment="Center"/>
+                        <!-- ============================== -->
+                        <!-- LEFT: File Selection Panel     -->
+                        <!-- ============================== -->
+                        <Border Grid.Column="0"
+                    Background="#FF0F1923"
+                    BorderBrush="#FF0F3460"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Disabled"
+                              Padding="10">
+                                <StackPanel>
 
-                                    <RadioButton Content="Multi-File (Fallback to 2nd/3rd files)"
-                                     IsChecked="{Binding OfflineCompare.UseMultiFileMode}"
-                                     Foreground="{StaticResource TextBrush}"
-                                     FontSize="11"
-                                     VerticalAlignment="Center"/>
+                                    <!-- ======================== -->
+                                    <!-- Mode Toggle              -->
+                                    <!-- ======================== -->
+                                    <Border Background="#FF0A0A1A"
+                                BorderBrush="#FF0F3460"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                Padding="10"
+                                Margin="0,0,0,8">
+                                        <StackPanel>
+                                            <TextBlock Text="📁 FILE MODE"
+                                           Foreground="#FF00D4FF"
+                                           FontSize="11"
+                                           FontWeight="Bold"
+                                           Margin="0,0,0,8"/>
+
+                                            <!-- Mode Toggle Buttons -->
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="5"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <!-- Single File Mode -->
+                                                <Button x:Name="btnOfflineModeSingle"
+                                            Grid.Column="0"
+                                            Content="📄  Single File"
+                                            Height="32"
+                                            Click="BtnOfflineModeSingle_Click">
+                                                    <Button.Style>
+                                                        <Style TargetType="Button"
+                                                   BasedOn="{StaticResource ProfessionalButton}">
+                                                            <Setter Property="Background"  Value="#FF00D4FF"/>
+                                                            <Setter Property="Foreground"  Value="#FF0A0A1A"/>
+                                                            <Setter Property="BorderBrush" Value="#FF00D4FF"/>
+                                                            <Setter Property="FontWeight"  Value="Bold"/>
+                                                        </Style>
+                                                    </Button.Style>
+                                                </Button>
+
+                                                <!-- Multiple File Mode -->
+                                                <Button x:Name="btnOfflineModeMultiple"
+                                            Grid.Column="2"
+                                            Content="📂  Multiple Files"
+                                            Height="32"
+                                            Click="BtnOfflineModeMultiple_Click">
+                                                    <Button.Style>
+                                                        <Style TargetType="Button"
+                                                   BasedOn="{StaticResource ProfessionalButton}">
+                                                            <Setter Property="Background"  Value="#FF0A1628"/>
+                                                            <Setter Property="Foreground"  Value="#FF95A5A6"/>
+                                                            <Setter Property="BorderBrush" Value="#FF555577"/>
+                                                        </Style>
+                                                    </Button.Style>
+                                                </Button>
+                                            </Grid>
+
+                                            <!-- Mode Description -->
+                                            <Border Background="#FF0A0A1A"
+                                        CornerRadius="4"
+                                        Padding="8,4"
+                                        Margin="0,6,0,0">
+                                                <TextBlock x:Name="txtOfflineModeDesc"
+                                               Text="Single combined log file (Main + Redundant)"
+                                               Foreground="#FF00D4FF"
+                                               FontSize="10"
+                                               TextWrapping="Wrap"/>
+                                            </Border>
+                                        </StackPanel>
+                                    </Border>
+
+                                    <!-- ======================== -->
+                                    <!-- Expected Commands File   -->
+                                    <!-- ======================== -->
+                                    <Border Background="#FF0A0A1A"
+                                BorderBrush="#FF333322"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                Padding="10"
+                                Margin="0,0,0,8">
+                                        <StackPanel>
+
+                                            <!-- Title -->
+                                            <StackPanel Orientation="Horizontal"
+                                            Margin="0,0,0,8">
+                                                <Border Background="#FFFF8C00"
+                                            CornerRadius="11"
+                                            Width="22" Height="22"
+                                            VerticalAlignment="Center"
+                                            Margin="0,0,8,0">
+                                                    <TextBlock Text="1"
+                                                   Foreground="#FF0A0A1A"
+                                                   FontSize="11"
+                                                   FontWeight="Bold"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"/>
+                                                </Border>
+                                                <StackPanel VerticalAlignment="Center">
+                                                    <TextBlock Text="EXPECTED COMMANDS FILE"
+                                                   Foreground="#FFFF8C00"
+                                                   FontSize="11"
+                                                   FontWeight="Bold"/>
+                                                    <TextBlock Text=".txt file with 8-byte hex commands"
+                                                   Foreground="#FF555577"
+                                                   FontSize="9"/>
+                                                </StackPanel>
+                                            </StackPanel>
+
+                                            <!-- File Path + Browse -->
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="5"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Border Grid.Column="0"
+                                            Background="#FF0F1923"
+                                            BorderBrush="#FFFF8C00"
+                                            BorderThickness="1"
+                                            CornerRadius="5"
+                                            Padding="6,4">
+                                                    <TextBox x:Name="txtOfflineExpectedFile"
+                                                 IsReadOnly="True"
+                                                 Background="Transparent"
+                                                 BorderThickness="0"
+                                                 Foreground="#FFFF8C00"
+                                                 FontFamily="Consolas"
+                                                 FontSize="10"
+                                                 TextWrapping="NoWrap"
+                                                 VerticalAlignment="Center"
+                                                 Text="No file selected"/>
+                                                </Border>
+
+                                                <Button x:Name="btnBrowseExpectedFile"
+                                            Grid.Column="2"
+                                            Content="📂 Browse"
+                                            Style="{StaticResource ProfessionalButton}"
+                                            Width="80"
+                                            Height="30"
+                                            Click="BtnBrowseExpectedFile_Click"/>
+                                            </Grid>
+
+                                            <!-- File Info -->
+                                            <Border x:Name="borderExpectedFileInfo"
+                                        Background="#FF0F1923"
+                                        BorderBrush="#FF333344"
+                                        BorderThickness="1"
+                                        CornerRadius="4"
+                                        Padding="8,5"
+                                        Margin="0,5,0,0"
+                                        Visibility="Collapsed">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <StackPanel Grid.Column="0">
+                                                        <TextBlock Text="Name"
+                                                       Foreground="#FF555577"
+                                                       FontSize="9"/>
+                                                        <TextBlock x:Name="txtExpectedFileName"
+                                                       Foreground="#FFFF8C00"
+                                                       FontSize="9"
+                                                       FontWeight="Bold"
+                                                       FontFamily="Consolas"
+                                                       TextTrimming="CharacterEllipsis"/>
+                                                    </StackPanel>
+
+                                                    <StackPanel Grid.Column="1" Margin="5,0">
+                                                        <TextBlock Text="Size"
+                                                       Foreground="#FF555577"
+                                                       FontSize="9"/>
+                                                        <TextBlock x:Name="txtExpectedFileSize"
+                                                       Foreground="#FF00D4FF"
+                                                       FontSize="9"
+                                                       FontWeight="Bold"/>
+                                                    </StackPanel>
+
+                                                    <StackPanel Grid.Column="2">
+                                                        <TextBlock Text="Commands"
+                                                       Foreground="#FF555577"
+                                                       FontSize="9"/>
+                                                        <TextBlock x:Name="txtExpectedFileCount"
+                                                       Foreground="#FF00FF88"
+                                                       FontSize="9"
+                                                       FontWeight="Bold"/>
+                                                    </StackPanel>
+
+                                                    <Button Grid.Column="3"
+                                                Content="✖"
+                                                Width="20" Height="20"
+                                                FontSize="9"
+                                                Padding="0"
+                                                VerticalAlignment="Center"
+                                                Style="{StaticResource ProfessionalButton}"
+                                                Click="BtnClearExpectedFile_Click"/>
+                                                </Grid>
+                                            </Border>
+                                        </StackPanel>
+                                    </Border>
+
+                                    <!-- ======================== -->
+                                    <!-- SINGLE FILE MODE PANEL   -->
+                                    <!-- ======================== -->
+                                    <Border x:Name="borderSingleFileMode"
+                                Background="#FF0A0A1A"
+                                BorderBrush="#FF0F3460"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                Padding="10"
+                                Margin="0,0,0,8"
+                                Visibility="Visible">
+                                        <StackPanel>
+
+                                            <!-- Title -->
+                                            <StackPanel Orientation="Horizontal"
+                                            Margin="0,0,0,8">
+                                                <Border Background="#FF00D4FF"
+                                            CornerRadius="11"
+                                            Width="22" Height="22"
+                                            VerticalAlignment="Center"
+                                            Margin="0,0,8,0">
+                                                    <TextBlock Text="2"
+                                                   Foreground="#FF0A0A1A"
+                                                   FontSize="11"
+                                                   FontWeight="Bold"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"/>
+                                                </Border>
+                                                <StackPanel VerticalAlignment="Center">
+                                                    <TextBlock Text="COMBINED LOG FILE"
+                                                   Foreground="#FF00D4FF"
+                                                   FontSize="11"
+                                                   FontWeight="Bold"/>
+                                                    <TextBlock Text="Single file with MAIN + REDUNDANT data"
+                                                   Foreground="#FF555577"
+                                                   FontSize="9"/>
+                                                </StackPanel>
+                                            </StackPanel>
+
+                                            <!-- File Path + Browse -->
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="5"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Border Grid.Column="0"
+                                            Background="#FF0F1923"
+                                            BorderBrush="#FF00D4FF"
+                                            BorderThickness="1"
+                                            CornerRadius="5"
+                                            Padding="6,4">
+                                                    <TextBox x:Name="txtOfflineSingleFile"
+                                                 IsReadOnly="True"
+                                                 Background="Transparent"
+                                                 BorderThickness="0"
+                                                 Foreground="#FF00D4FF"
+                                                 FontFamily="Consolas"
+                                                 FontSize="10"
+                                                 VerticalAlignment="Center"
+                                                 Text="No file selected"/>
+                                                </Border>
+
+                                                <Button x:Name="btnBrowseSingleFile"
+                                            Grid.Column="2"
+                                            Content="📂 Browse"
+                                            Style="{StaticResource ProfessionalButton}"
+                                            Width="80"
+                                            Height="30"
+                                            Click="BtnBrowseSingleFile_Click"/>
+                                            </Grid>
+
+                                            <!-- File Info -->
+                                            <Border x:Name="borderSingleFileInfo"
+                                        Background="#FF0F1923"
+                                        BorderBrush="#FF333344"
+                                        BorderThickness="1"
+                                        CornerRadius="4"
+                                        Padding="8,5"
+                                        Margin="0,5,0,0"
+                                        Visibility="Collapsed">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <StackPanel Grid.Column="0">
+                                                        <TextBlock Text="Name"
+                                                       Foreground="#FF555577"
+                                                       FontSize="9"/>
+                                                        <TextBlock x:Name="txtSingleFileName"
+                                                       Foreground="#FF00D4FF"
+                                                       FontSize="9"
+                                                       FontWeight="Bold"
+                                                       FontFamily="Consolas"
+                                                       TextTrimming="CharacterEllipsis"/>
+                                                    </StackPanel>
+
+                                                    <StackPanel Grid.Column="1" Margin="5,0">
+                                                        <TextBlock Text="Size"
+                                                       Foreground="#FF555577"
+                                                       FontSize="9"/>
+                                                        <TextBlock x:Name="txtSingleFileSize"
+                                                       Foreground="#FF00D4FF"
+                                                       FontSize="9"
+                                                       FontWeight="Bold"/>
+                                                    </StackPanel>
+
+                                                    <StackPanel Grid.Column="2">
+                                                        <TextBlock Text="Lines"
+                                                       Foreground="#FF555577"
+                                                       FontSize="9"/>
+                                                        <TextBlock x:Name="txtSingleFileLines"
+                                                       Foreground="#FF00FF88"
+                                                       FontSize="9"
+                                                       FontWeight="Bold"/>
+                                                    </StackPanel>
+
+                                                    <Button Grid.Column="3"
+                                                Content="✖"
+                                                Width="20" Height="20"
+                                                FontSize="9"
+                                                Padding="0"
+                                                VerticalAlignment="Center"
+                                                Style="{StaticResource ProfessionalButton}"
+                                                Click="BtnClearSingleFile_Click"/>
+                                                </Grid>
+                                            </Border>
+                                        </StackPanel>
+                                    </Border>
+
+                                    <!-- ======================== -->
+                                    <!-- MULTIPLE FILE MODE PANEL -->
+                                    <!-- ======================== -->
+                                    <StackPanel x:Name="stackMultipleFileMode"
+                                    Visibility="Collapsed">
+
+                                        <!-- Main Data File -->
+                                        <Border Background="#FF0A0A1A"
+                                    BorderBrush="#FF0F3460"
+                                    BorderThickness="1"
+                                    CornerRadius="6"
+                                    Padding="10"
+                                    Margin="0,0,0,8">
+                                            <StackPanel>
+
+                                                <!-- Title -->
+                                                <StackPanel Orientation="Horizontal"
+                                                Margin="0,0,0,8">
+                                                    <Border Background="#FF00FF88"
+                                                CornerRadius="11"
+                                                Width="22" Height="22"
+                                                VerticalAlignment="Center"
+                                                Margin="0,0,8,0">
+                                                        <TextBlock Text="2"
+                                                       Foreground="#FF0A0A1A"
+                                                       FontSize="11"
+                                                       FontWeight="Bold"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"/>
+                                                    </Border>
+                                                    <StackPanel VerticalAlignment="Center">
+                                                        <TextBlock Text="MAIN DATA FILE"
+                                                       Foreground="#FF00FF88"
+                                                       FontSize="11"
+                                                       FontWeight="Bold"/>
+                                                        <TextBlock Text="MAIN source log file only"
+                                                       Foreground="#FF555577"
+                                                       FontSize="9"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+
+                                                <!-- File Path + Browse -->
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="5"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Border Grid.Column="0"
+                                                Background="#FF0F1923"
+                                                BorderBrush="#FF00FF88"
+                                                BorderThickness="1"
+                                                CornerRadius="5"
+                                                Padding="6,4">
+                                                        <TextBox x:Name="txtOfflineMainFile"
+                                                     IsReadOnly="True"
+                                                     Background="Transparent"
+                                                     BorderThickness="0"
+                                                     Foreground="#FF00FF88"
+                                                     FontFamily="Consolas"
+                                                     FontSize="10"
+                                                     VerticalAlignment="Center"
+                                                     Text="No file selected"/>
+                                                    </Border>
+
+                                                    <Button x:Name="btnBrowseMainFile"
+                                                Grid.Column="2"
+                                                Content="📂 Browse"
+                                                Style="{StaticResource ProfessionalButton}"
+                                                Width="80"
+                                                Height="30"
+                                                Click="BtnBrowseMainFile_Click"/>
+                                                </Grid>
+
+                                                <!-- File Info -->
+                                                <Border x:Name="borderMainFileInfo"
+                                            Background="#FF0F1923"
+                                            BorderBrush="#FF333344"
+                                            BorderThickness="1"
+                                            CornerRadius="4"
+                                            Padding="8,5"
+                                            Margin="0,5,0,0"
+                                            Visibility="Collapsed">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <StackPanel Grid.Column="0">
+                                                            <TextBlock Text="Name"
+                                                           Foreground="#FF555577"
+                                                           FontSize="9"/>
+                                                            <TextBlock x:Name="txtMainFileName"
+                                                           Foreground="#FF00FF88"
+                                                           FontSize="9"
+                                                           FontWeight="Bold"
+                                                           FontFamily="Consolas"
+                                                           TextTrimming="CharacterEllipsis"/>
+                                                        </StackPanel>
+
+                                                        <StackPanel Grid.Column="1" Margin="5,0">
+                                                            <TextBlock Text="Size"
+                                                           Foreground="#FF555577"
+                                                           FontSize="9"/>
+                                                            <TextBlock x:Name="txtMainFileSize"
+                                                           Foreground="#FF00D4FF"
+                                                           FontSize="9"
+                                                           FontWeight="Bold"/>
+                                                        </StackPanel>
+
+                                                        <StackPanel Grid.Column="2">
+                                                            <TextBlock Text="Lines"
+                                                           Foreground="#FF555577"
+                                                           FontSize="9"/>
+                                                            <TextBlock x:Name="txtMainFileLines"
+                                                           Foreground="#FF00FF88"
+                                                           FontSize="9"
+                                                           FontWeight="Bold"/>
+                                                        </StackPanel>
+
+                                                        <Button Grid.Column="3"
+                                                    Content="✖"
+                                                    Width="20" Height="20"
+                                                    FontSize="9"
+                                                    Padding="0"
+                                                    VerticalAlignment="Center"
+                                                    Style="{StaticResource ProfessionalButton}"
+                                                    Click="BtnClearMainFile_Click"/>
+                                                    </Grid>
+                                                </Border>
+                                            </StackPanel>
+                                        </Border>
+
+                                        <!-- Redundant Data File -->
+                                        <Border Background="#FF0A0A1A"
+                                    BorderBrush="#FF0F3460"
+                                    BorderThickness="1"
+                                    CornerRadius="6"
+                                    Padding="10"
+                                    Margin="0,0,0,8">
+                                            <StackPanel>
+
+                                                <!-- Title -->
+                                                <StackPanel Orientation="Horizontal"
+                                                Margin="0,0,0,8">
+                                                    <Border Background="#FF00D4FF"
+                                                CornerRadius="11"
+                                                Width="22" Height="22"
+                                                VerticalAlignment="Center"
+                                                Margin="0,0,8,0">
+                                                        <TextBlock Text="3"
+                                                       Foreground="#FF0A0A1A"
+                                                       FontSize="11"
+                                                       FontWeight="Bold"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"/>
+                                                    </Border>
+                                                    <StackPanel VerticalAlignment="Center">
+                                                        <TextBlock Text="REDUNDANT DATA FILE"
+                                                       Foreground="#FF00D4FF"
+                                                       FontSize="11"
+                                                       FontWeight="Bold"/>
+                                                        <TextBlock Text="REDUNDANT source log file only"
+                                                       Foreground="#FF555577"
+                                                       FontSize="9"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+
+                                                <!-- File Path + Browse -->
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="5"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Border Grid.Column="0"
+                                                Background="#FF0F1923"
+                                                BorderBrush="#FF00D4FF"
+                                                BorderThickness="1"
+                                                CornerRadius="5"
+                                                Padding="6,4">
+                                                        <TextBox x:Name="txtOfflineRedundantFile"
+                                                     IsReadOnly="True"
+                                                     Background="Transparent"
+                                                     BorderThickness="0"
+                                                     Foreground="#FF00D4FF"
+                                                     FontFamily="Consolas"
+                                                     FontSize="10"
+                                                     VerticalAlignment="Center"
+                                                     Text="No file selected"/>
+                                                    </Border>
+
+                                                    <Button x:Name="btnBrowseRedundantFile"
+                                                Grid.Column="2"
+                                                Content="📂 Browse"
+                                                Style="{StaticResource ProfessionalButton}"
+                                                Width="80"
+                                                Height="30"
+                                                Click="BtnBrowseRedundantFile_Click"/>
+                                                </Grid>
+
+                                                <!-- File Info -->
+                                                <Border x:Name="borderRedundantFileInfo"
+                                            Background="#FF0F1923"
+                                            BorderBrush="#FF333344"
+                                            BorderThickness="1"
+                                            CornerRadius="4"
+                                            Padding="8,5"
+                                            Margin="0,5,0,0"
+                                            Visibility="Collapsed">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <StackPanel Grid.Column="0">
+                                                            <TextBlock Text="Name"
+                                                           Foreground="#FF555577"
+                                                           FontSize="9"/>
+                                                            <TextBlock x:Name="txtRedundantFileName"
+                                                           Foreground="#FF00D4FF"
+                                                           FontSize="9"
+                                                           FontWeight="Bold"
+                                                           FontFamily="Consolas"
+                                                           TextTrimming="CharacterEllipsis"/>
+                                                        </StackPanel>
+
+                                                        <StackPanel Grid.Column="1" Margin="5,0">
+                                                            <TextBlock Text="Size"
+                                                           Foreground="#FF555577"
+                                                           FontSize="9"/>
+                                                            <TextBlock x:Name="txtRedundantFileSize"
+                                                           Foreground="#FF00D4FF"
+                                                           FontSize="9"
+                                                           FontWeight="Bold"/>
+                                                        </StackPanel>
+
+                                                        <StackPanel Grid.Column="2">
+                                                            <TextBlock Text="Lines"
+                                                           Foreground="#FF555577"
+                                                           FontSize="9"/>
+                                                            <TextBlock x:Name="txtRedundantFileLines"
+                                                           Foreground="#FF00FF88"
+                                                           FontSize="9"
+                                                           FontWeight="Bold"/>
+                                                        </StackPanel>
+
+                                                        <Button Grid.Column="3"
+                                                    Content="✖"
+                                                    Width="20" Height="20"
+                                                    FontSize="9"
+                                                    Padding="0"
+                                                    VerticalAlignment="Center"
+                                                    Style="{StaticResource ProfessionalButton}"
+                                                    Click="BtnClearRedundantFile_Click"/>
+                                                    </Grid>
+                                                </Border>
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
+
+                                    <!-- ======================== -->
+                                    <!-- STATUS ROW               -->
+                                    <!-- ======================== -->
+                                    <Border Background="#FF0A0A1A"
+                                BorderBrush="#FF0F3460"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                Padding="10,8"
+                                Margin="0,0,0,8">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="📊 STATUS: "
+                                           Foreground="#FF95A5A6"
+                                           FontSize="11"
+                                           FontWeight="Bold"
+                                           VerticalAlignment="Center"/>
+                                            <TextBlock x:Name="txtOfflineReadyStatus"
+                                           Text="Select files first"
+                                           Foreground="#FFFF4444"
+                                           FontSize="11"
+                                           FontWeight="Bold"
+                                           VerticalAlignment="Center"
+                                           Margin="6,0,0,0"/>
+                                        </StackPanel>
+                                    </Border>
+
+                                    <!-- ======================== -->
+                                    <!-- ACTION BUTTONS           -->
+                                    <!-- ======================== -->
+                                    <Grid Margin="0,0,0,5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="5"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <!-- Row 1: Compare + Folders -->
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="5"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Button x:Name="btnCompareOfflineFiles"
+                                        Grid.Column="0"
+                                        Content="⚡ START COMPARE"
+                                        Style="{StaticResource ConnectButton}"
+                                        Height="36"
+                                        FontSize="11"
+                                        IsEnabled="False"
+                                        Click="BtnCompareOfflineFiles_Click"/>
+
+                                            <Button x:Name="btnOpenLogFolders"
+                                        Grid.Column="2"
+                                        Content="📁 Open Folders"
+                                        Style="{StaticResource ProfessionalButton}"
+                                        Height="36"
+                                        FontSize="11"
+                                        Click="BtnOpenLogFolders_Click"/>
+                                        </Grid>
+
+                                        <!-- Row 2: Clear + Export -->
+                                        <Grid Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="5"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Button x:Name="btnClearOfflineResults"
+                                        Grid.Column="0"
+                                        Content="🗑 Clear Results"
+                                        Style="{StaticResource ProfessionalButton}"
+                                        Height="32"
+                                        FontSize="11"
+                                        Click="BtnClearOfflineResults_Click"/>
+
+                                            <Button x:Name="btnExportOfflineReport"
+                                        Grid.Column="2"
+                                        Content="💾 Export Report"
+                                        Style="{StaticResource ProfessionalButton}"
+                                        Height="32"
+                                        FontSize="11"
+                                        Click="BtnExportOfflineReport_Click"/>
+                                        </Grid>
+                                    </Grid>
+
                                 </StackPanel>
-                            </Border>
+                            </ScrollViewer>
+                        </Border>
 
-                            <!-- ══════════════════════════════════════════════════════════════
-                     FILE SELECTION
-                ═══════════════════════════════════════════════════════════════ -->
-                            <Grid Grid.Row="2" Margin="10,10,10,0">
+                        <!-- Splitter -->
+                        <GridSplitter Grid.Column="1"
+                          Width="5"
+                          HorizontalAlignment="Stretch"
+                          Background="#FF0F3460"
+                          ResizeDirection="Columns"/>
+
+                        <!-- ============================== -->
+                        <!-- RIGHT: Results Panel           -->
+                        <!-- ============================== -->
+                        <Border Grid.Column="2"
+                    Background="#FF050510"
+                    BorderBrush="#FF0F3460"
+                    BorderThickness="1"
+                    CornerRadius="8">
+                            <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="8"/>
-                                    <RowDefinition Height="Auto"/>
+                                    <!-- Results Header Bar -->
+                                    <RowDefinition Height="45"/>
+                                    <!-- Results Content -->
+                                    <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
-                                <!-- Expected file -->
-                                <Border Grid.Row="0" Background="#FF0D1526"
-                            BorderBrush="{StaticResource YellowBrush}"
-                            BorderThickness="2" CornerRadius="4" Padding="10">
+                                <!-- Results Header -->
+                                <Border Grid.Row="0"
+                            Background="#FF0F3460"
+                            CornerRadius="8,8,0,0"
+                            Padding="15,0">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="160"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="120"/>
-                                        </Grid.ColumnDefinitions>
-
-                                        <TextBlock Grid.Column="0" Text="EXPECTED COMMANDS:"
-                                       FontSize="11" FontWeight="Bold"
-                                       Foreground="{StaticResource YellowBrush}"
-                                       VerticalAlignment="Center"/>
-
-                                        <TextBox Grid.Column="1"
-                                     Text="{Binding OfflineCompare.ExpectedFilePath}"
-                                     Style="{StaticResource LogTextBox}"
-                                     IsReadOnly="True" Height="28"
-                                     VerticalContentAlignment="Center"
-                                     Margin="5,0"/>
-
-                                        <Button Grid.Column="2" Content="📂  BROWSE"
-                                    Style="{StaticResource ProfessionalButton}"
-                                    Height="28"
-                                    Click="BtnBrowseExpected_Click"/>
-                                    </Grid>
-                                </Border>
-
-                                <!-- Actual files -->
-                                <Border Grid.Row="2" Background="#FF0D1526"
-                            BorderBrush="{StaticResource GreenBrush}"
-                            BorderThickness="2" CornerRadius="4" Padding="10">
-                                    <StackPanel>
-                                        <TextBlock Text="ACTUAL LOG FILE(S):" FontSize="11"
-                                       FontWeight="Bold" Foreground="{StaticResource GreenBrush}"
-                                       Margin="0,0,0,8"/>
-
-                                        <!-- File 1 -->
-                                        <Grid Margin="0,0,0,6">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="70"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="120"/>
-                                            </Grid.ColumnDefinitions>
-
-                                            <TextBlock Grid.Column="0" Text="FILE 1:"
-                                           FontSize="10" Foreground="{StaticResource SubTextBrush}"
-                                           VerticalAlignment="Center"/>
-                                            <TextBox Grid.Column="1"
-                                         Text="{Binding OfflineCompare.ActualFile1Path}"
-                                         Style="{StaticResource LogTextBox}"
-                                         IsReadOnly="True" Height="26"
-                                         VerticalContentAlignment="Center"
-                                         Margin="0,0,5,0"/>
-                                            <Button Grid.Column="2" Content="BROWSE"
-                                        Style="{StaticResource ProfessionalButton}"
-                                        Height="26"
-                                        Click="BtnBrowseActual1_Click"/>
-                                        </Grid>
-
-                                        <!-- File 2 (multi-file mode) -->
-                                        <Grid Margin="0,0,0,6"
-                                  IsEnabled="{Binding OfflineCompare.UseMultiFileMode}">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="70"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="120"/>
-                                            </Grid.ColumnDefinitions>
-
-                                            <TextBlock Grid.Column="0" Text="FILE 2:"
-                                           FontSize="10" Foreground="{StaticResource SubTextBrush}"
-                                           VerticalAlignment="Center"/>
-                                            <TextBox Grid.Column="1"
-                                         Text="{Binding OfflineCompare.ActualFile2Path}"
-                                         Style="{StaticResource LogTextBox}"
-                                         IsReadOnly="True" Height="26"
-                                         VerticalContentAlignment="Center"
-                                         Margin="0,0,5,0"/>
-                                            <Button Grid.Column="2" Content="BROWSE"
-                                        Style="{StaticResource ProfessionalButton}"
-                                        Height="26"
-                                        Click="BtnBrowseActual2_Click"/>
-                                        </Grid>
-
-                                        <!-- File 3 (multi-file mode) -->
-                                        <Grid IsEnabled="{Binding OfflineCompare.UseMultiFileMode}">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="70"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="120"/>
-                                            </Grid.ColumnDefinitions>
-
-                                            <TextBlock Grid.Column="0" Text="FILE 3:"
-                                           FontSize="10" Foreground="{StaticResource SubTextBrush}"
-                                           VerticalAlignment="Center"/>
-                                            <TextBox Grid.Column="1"
-                                         Text="{Binding OfflineCompare.ActualFile3Path}"
-                                         Style="{StaticResource LogTextBox}"
-                                         IsReadOnly="True" Height="26"
-                                         VerticalContentAlignment="Center"
-                                         Margin="0,0,5,0"/>
-                                            <Button Grid.Column="2" Content="BROWSE"
-                                        Style="{StaticResource ProfessionalButton}"
-                                        Height="26"
-                                        Click="BtnBrowseActual3_Click"/>
-                                        </Grid>
-                                    </StackPanel>
-                                </Border>
-                            </Grid>
-
-                            <!-- ══════════════════════════════════════════════════════════════
-                     CONTROL BUTTONS
-                ═══════════════════════════════════════════════════════════════ -->
-                            <Border Grid.Row="3" Margin="10,10,10,0"
-                        Background="{StaticResource PanelBgBrush}"
-                        BorderBrush="{StaticResource AccentBrush}"
-                        BorderThickness="1" CornerRadius="4" Padding="10">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Button Content="▶  START COMPARISON"
-                                Style="{StaticResource ConnectButton}"
-                                Width="180" Height="36" FontSize="13" FontWeight="Bold"
-                                Margin="0,0,10,0"
-                                IsEnabled="{Binding OfflineCompare.IsNotComparing}"
-                                Click="BtnStartCompare_Click"/>
-
-                                    <Button Content="✕  CLEAR RESULTS"
-                                Style="{StaticResource ProfessionalButton}"
-                                Width="140" Height="36"
-                                Click="BtnClearCompare_Click"/>
-                                </StackPanel>
-                            </Border>
-
-                            <!-- ══════════════════════════════════════════════════════════════
-     PROGRESS BAR
-═══════════════════════════════════════════════════════════════ -->
-                            <Border Grid.Row="4" Margin="10,10,10,0"
-        Background="#FF0D1526"
-        BorderBrush="{StaticResource AccentBrush}"
-        BorderThickness="1" CornerRadius="4" Padding="12,8"
-        Visibility="{Binding OfflineCompare.IsComparing, 
-                     Converter={StaticResource BoolToVisConv}}">
-                                <StackPanel>
-                                    <Grid Margin="0,0,0,6">
-                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <TextBlock Grid.Column="0"
-                       Text="{Binding OfflineCompare.ProgressText}"
-                       FontSize="11" FontFamily="Consolas"
-                       Foreground="{StaticResource TextBrush}"
-                       VerticalAlignment="Center"/>
+                                        <StackPanel Grid.Column="0"
+                                        Orientation="Horizontal"
+                                        VerticalAlignment="Center">
+                                            <TextBlock Text="◈"
+                                           Foreground="#FFFF8C00"
+                                           FontSize="16"
+                                           FontWeight="Bold"
+                                           Margin="0,0,8,0"/>
+                                            <TextBlock Text="OFFLINE COMPARISON RESULTS"
+                                           Foreground="#FFFF8C00"
+                                           FontWeight="Bold"
+                                           FontSize="13"/>
+                                        </StackPanel>
 
-                                        <TextBlock Grid.Column="1"
-                       FontSize="11" FontWeight="Bold"
-                       FontFamily="Consolas"
-                       Foreground="{StaticResource AccentBrush}">
-                <Run Text="{Binding OfflineCompare.ProgressPercent, Mode=OneWay}"/>
-                <Run Text="%"/>
-                                        </TextBlock>
+                                        <!-- Status Indicator -->
+                                        <StackPanel Grid.Column="2"
+                                        Orientation="Horizontal"
+                                        VerticalAlignment="Center">
+                                            <Ellipse x:Name="ellipseOfflineStatus"
+                                         Width="12" Height="12"
+                                         Fill="#FFFF4444"
+                                         Margin="0,0,6,0"/>
+                                            <TextBlock x:Name="txtOfflineMatchStatus"
+                                           Text="Ready - Select files to compare"
+                                           Foreground="#FFFF8C00"
+                                           FontSize="11"
+                                           FontWeight="Bold"/>
+                                        </StackPanel>
                                     </Grid>
+                                </Border>
 
-                                    <ProgressBar Height="20"
-                     Minimum="0" Maximum="100"
-                     Value="{Binding OfflineCompare.ProgressPercent}"
-                     Foreground="{StaticResource AccentBrush}"
-                     Background="{StaticResource DarkBgBrush}"
-                     BorderBrush="{StaticResource PanelBgBrush}"
-                     BorderThickness="1"/>
-                                </StackPanel>
-                            </Border>
-                            <!-- ══════════════════════════════════════════════════════════════
-                     COMPARISON RESULTS (FIXED HEIGHT WITH SCROLLBAR)
-                ═══════════════════════════════════════════════════════════════ -->
-                            <Border Grid.Row="5" Margin="10,10,10,0"
-                        Background="#FF080D18"
-                        BorderBrush="{StaticResource PanelBgBrush}"
-                        BorderThickness="2" CornerRadius="4">
-                                <ScrollViewer VerticalScrollBarVisibility="Auto"
-                                  HorizontalScrollBarVisibility="Auto">
-                                    <TextBox Text="{Binding OfflineCompare.ComparisonResult, Mode=OneWay}"
+                                <!-- Results Content Area -->
+                                <Grid Grid.Row="1">
+
+                                    <!-- Results TextBox with ScrollViewer -->
+                                    <TextBox x:Name="txtOfflineCompareResults"
+                                 Style="{StaticResource LogTextBox}"
+                                 IsReadOnly="True"
+                                 VerticalScrollBarVisibility="Auto"
+                                 HorizontalScrollBarVisibility="Auto"
+                                 TextWrapping="NoWrap"
                                  Background="Transparent"
-                                 Foreground="{StaticResource GreenBrush}"
+                                 BorderThickness="0"
+                                 Foreground="#FFFF8C00"
                                  FontFamily="Consolas"
                                  FontSize="10"
-                                 BorderThickness="0"
-                                 IsReadOnly="True"
-                                 TextWrapping="NoWrap"
-                                 AcceptsReturn="True"
-                                 Padding="10"
-                                 VerticalScrollBarVisibility="Disabled"
-                                 HorizontalScrollBarVisibility="Disabled"/>
-                                </ScrollViewer>
-                            </Border>
+                                 Padding="12,8"/>
 
-                            <!-- ══════════════════════════════════════════════════════════════
-                     STATUS BAR
-                ═══════════════════════════════════════════════════════════════ -->
-                            <Border Grid.Row="6" Margin="10,10,10,0"
-                        Background="{StaticResource PanelBgBrush}"
-                        BorderBrush="{StaticResource AccentBrush}"
-                        BorderThickness="1" CornerRadius="4"
-                        Padding="12,7">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock Grid.Column="0"
-                                   Text="STATUS: "
-                                   FontSize="10" FontWeight="Bold"
-                                   Foreground="{StaticResource SubTextBrush}"
-                                   VerticalAlignment="Center"/>
-
-                                    <TextBlock Grid.Column="1"
-                                   Text="{Binding OfflineCompare.StatusMessage}"
-                                   FontSize="10" FontFamily="Consolas"
-                                   Foreground="{StaticResource AccentBrush}"
-                                   VerticalAlignment="Center"/>
+                                    <!-- Placeholder when empty -->
+                                    <StackPanel x:Name="panelOfflinePlaceholder"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    IsHitTestVisible="False">
+                                        <TextBlock Text="📊"
+                                       FontSize="48"
+                                       Foreground="#FF333344"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,10"/>
+                                        <TextBlock Text="No comparison results yet"
+                                       Foreground="#FF555566"
+                                       FontSize="14"
+                                       HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Select files and click START COMPARE"
+                                       Foreground="#FF444455"
+                                       FontSize="11"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,5,0,0"/>
+                                    </StackPanel>
                                 </Grid>
-                            </Border>
-                        </Grid>
-                    </ScrollViewer>
-                </Border>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
             </TabItem>
+
 
 
             <!-- ═══════════════════════════════════════════════════════════
@@ -1306,128 +1921,266 @@
             ════════════════════════════════════════════════════════════ -->
             <TabItem Header="🔢 FRAME COUNTER" Style="{StaticResource DarkTabItem}">
                 <Border Background="{StaticResource MidBgBrush}"
-                        BorderBrush="{StaticResource PanelBgBrush}"
-                        BorderThickness="1" CornerRadius="4" Margin="4">
+            BorderBrush="{StaticResource PanelBgBrush}"
+            BorderThickness="1" CornerRadius="4" Margin="4">
                     <Grid>
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
                         <!-- Header -->
                         <Border Grid.Row="0" Background="{StaticResource PanelBgBrush}"
-                                CornerRadius="4,4,0,0" Padding="12,8">
+                    CornerRadius="4,4,0,0" Padding="12,8">
                             <StackPanel>
-                                <TextBlock Text="VISUAL FRAME COUNTER DISPLAY" FontSize="14"
-                                           FontWeight="Bold" Foreground="{StaticResource AccentBrush}"/>
-                                <TextBlock Text="Large digital counter for frame monitoring"
-                                           FontSize="11" Foreground="{StaticResource SubTextBrush}"/>
+                                <TextBlock Text="FRAME COUNTER &amp; STATISTICS" FontSize="14"
+                               FontWeight="Bold" Foreground="{StaticResource AccentBrush}"/>
+                                <TextBlock x:Name="txtFrameCounterModeDesc" 
+                               Text="Real-time frame counting from connected ports"
+                               FontSize="11" Foreground="{StaticResource SubTextBrush}"/>
                             </StackPanel>
                         </Border>
 
-                        <!-- Counter display -->
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="20"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                        <!-- Mode selector -->
+                        <Border Grid.Row="1" Background="#FF0A1628"
+                    BorderBrush="{StaticResource PanelBgBrush}"
+                    BorderThickness="0,1" Padding="12,8">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="MODE:" FontSize="11" FontWeight="Bold"
+                               Foreground="{StaticResource SubTextBrush}"
+                               VerticalAlignment="Center" Margin="0,0,10,0"/>
 
-                            <!-- PORT 1 counter -->
-                            <Border Grid.Column="0" Background="#FF0D1526"
-                                    BorderBrush="{StaticResource GreenBrush}"
-                                    BorderThickness="2" CornerRadius="4"
-                                    Margin="20">
-                                <StackPanel VerticalAlignment="Center">
-                                    <TextBlock Text="PORT 1" FontSize="16"
-                                               FontWeight="Bold" Foreground="{StaticResource GreenBrush}"
-                                               HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                                    <TextBlock Text="{Binding Port1.TotalFrames}" FontSize="72"
+                                <Button x:Name="btnFrameCounterOnline" Content="📡 ONLINE (LIVE)"
+                            Style="{StaticResource ProfessionalButton}"
+                            Width="150" Margin="0,0,8,0"
+                            Click="BtnFrameCounterOnline_Click"/>
+
+                                <Button x:Name="btnFrameCounterOffline" Content="📁 OFFLINE (FILE)"
+                            Style="{StaticResource ProfessionalButton}"
+                            Width="150"
+                            Click="BtnFrameCounterOffline_Click"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Content area -->
+                        <Grid Grid.Row="2" x:Name="gridFrameCounterContent">
+
+                            <!-- ══════════════════════════════════════════════════════
+                     ONLINE MODE PANEL
+                     ═════════════════════════════════════════════════════ -->
+                            <Grid x:Name="panelFrameCounterOnline" Visibility="Visible">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="20"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- PORT 1 counter -->
+                                <Border Grid.Column="0" Background="#FF0D1526"
+                            BorderBrush="{StaticResource GreenBrush}"
+                            BorderThickness="2" CornerRadius="4"
+                            Margin="20">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="PORT 1" FontSize="16"
+                                       FontWeight="Bold" Foreground="{StaticResource GreenBrush}"
+                                       HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                                        <TextBlock Text="{Binding Port1.TotalFrames}" FontSize="72"
+                                       FontWeight="Bold" FontFamily="Consolas"
+                                       Foreground="{StaticResource GreenBrush}"
+                                       HorizontalAlignment="Center"/>
+                                        <TextBlock Text="TOTAL FRAMES" FontSize="14"
+                                       Foreground="{StaticResource SubTextBrush}"
+                                       HorizontalAlignment="Center" Margin="0,10,0,0"/>
+
+                                        <Separator Margin="40,20" Background="{StaticResource PanelBgBrush}"/>
+
+                                        <Grid Margin="40,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackPanel Grid.Column="0">
+                                                <TextBlock Text="VALID" FontSize="11"
+                                               Foreground="{StaticResource SubTextBrush}"
+                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Port1.ValidFrames}" FontSize="28"
                                                FontWeight="Bold" FontFamily="Consolas"
                                                Foreground="{StaticResource GreenBrush}"
                                                HorizontalAlignment="Center"/>
-                                    <TextBlock Text="TOTAL FRAMES" FontSize="14"
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="1">
+                                                <TextBlock Text="INVALID" FontSize="11"
                                                Foreground="{StaticResource SubTextBrush}"
-                                               HorizontalAlignment="Center" Margin="0,10,0,0"/>
-
-                                    <Separator Margin="40,20" Background="{StaticResource PanelBgBrush}"/>
-
-                                    <Grid Margin="40,0">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-
-                                        <StackPanel Grid.Column="0">
-                                            <TextBlock Text="VALID" FontSize="11"
-                                                       Foreground="{StaticResource SubTextBrush}"
-                                                       HorizontalAlignment="Center"/>
-                                            <TextBlock Text="{Binding Port1.ValidFrames}" FontSize="28"
-                                                       FontWeight="Bold" FontFamily="Consolas"
-                                                       Foreground="{StaticResource GreenBrush}"
-                                                       HorizontalAlignment="Center"/>
-                                        </StackPanel>
-
-                                        <StackPanel Grid.Column="1">
-                                            <TextBlock Text="INVALID" FontSize="11"
-                                                       Foreground="{StaticResource SubTextBrush}"
-                                                       HorizontalAlignment="Center"/>
-                                            <TextBlock Text="{Binding Port1.InvalidFrames}" FontSize="28"
-                                                       FontWeight="Bold" FontFamily="Consolas"
-                                                       Foreground="{StaticResource AccentBrush}"
-                                                       HorizontalAlignment="Center"/>
-                                        </StackPanel>
-                                    </Grid>
-                                </StackPanel>
-                            </Border>
-
-                            <!-- PORT 2 counter -->
-                            <Border Grid.Column="2" Background="#FF0D1526"
-                                    BorderBrush="{StaticResource YellowBrush}"
-                                    BorderThickness="2" CornerRadius="4"
-                                    Margin="20">
-                                <StackPanel VerticalAlignment="Center">
-                                    <TextBlock Text="PORT 2" FontSize="16"
-                                               FontWeight="Bold" Foreground="{StaticResource YellowBrush}"
-                                               HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                                    <TextBlock Text="{Binding Port2.TotalFrames}" FontSize="72"
-                                               FontWeight="Bold" FontFamily="Consolas"
-                                               Foreground="{StaticResource YellowBrush}"
                                                HorizontalAlignment="Center"/>
-                                    <TextBlock Text="TOTAL FRAMES" FontSize="14"
+                                                <TextBlock Text="{Binding Port1.InvalidFrames}" FontSize="28"
+                                               FontWeight="Bold" FontFamily="Consolas"
+                                               Foreground="{StaticResource AccentBrush}"
+                                               HorizontalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- PORT 2 counter -->
+                                <Border Grid.Column="2" Background="#FF0D1526"
+                            BorderBrush="{StaticResource YellowBrush}"
+                            BorderThickness="2" CornerRadius="4"
+                            Margin="20">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="PORT 2" FontSize="16"
+                                       FontWeight="Bold" Foreground="{StaticResource YellowBrush}"
+                                       HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                                        <TextBlock Text="{Binding Port2.TotalFrames}" FontSize="72"
+                                       FontWeight="Bold" FontFamily="Consolas"
+                                       Foreground="{StaticResource YellowBrush}"
+                                       HorizontalAlignment="Center"/>
+                                        <TextBlock Text="TOTAL FRAMES" FontSize="14"
+                                       Foreground="{StaticResource SubTextBrush}"
+                                       HorizontalAlignment="Center" Margin="0,10,0,0"/>
+
+                                        <Separator Margin="40,20" Background="{StaticResource PanelBgBrush}"/>
+
+                                        <Grid Margin="40,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackPanel Grid.Column="0">
+                                                <TextBlock Text="VALID" FontSize="11"
                                                Foreground="{StaticResource SubTextBrush}"
-                                               HorizontalAlignment="Center" Margin="0,10,0,0"/>
+                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Port2.ValidFrames}" FontSize="28"
+                                               FontWeight="Bold" FontFamily="Consolas"
+                                               Foreground="{StaticResource GreenBrush}"
+                                               HorizontalAlignment="Center"/>
+                                            </StackPanel>
 
-                                    <Separator Margin="40,20" Background="{StaticResource PanelBgBrush}"/>
+                                            <StackPanel Grid.Column="1">
+                                                <TextBlock Text="INVALID" FontSize="11"
+                                               Foreground="{StaticResource SubTextBrush}"
+                                               HorizontalAlignment="Center"/>
+                                                <TextBlock Text="{Binding Port2.InvalidFrames}" FontSize="28"
+                                               FontWeight="Bold" FontFamily="Consolas"
+                                               Foreground="{StaticResource AccentBrush}"
+                                               HorizontalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
 
-                                    <Grid Margin="40,0">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
+                            <!-- ══════════════════════════════════════════════════════
+                     OFFLINE MODE PANEL
+                     ═════════════════════════════════════════════════════ -->
+                            <Grid x:Name="panelFrameCounterOffline" Visibility="Collapsed">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
 
-                                        <StackPanel Grid.Column="0">
-                                            <TextBlock Text="VALID" FontSize="11"
-                                                       Foreground="{StaticResource SubTextBrush}"
-                                                       HorizontalAlignment="Center"/>
-                                            <TextBlock Text="{Binding Port2.ValidFrames}" FontSize="28"
-                                                       FontWeight="Bold" FontFamily="Consolas"
-                                                       Foreground="{StaticResource GreenBrush}"
-                                                       HorizontalAlignment="Center"/>
+                                <!-- File selection -->
+                                <Border Grid.Row="0" Background="#FF0D1526"
+                            BorderBrush="{StaticResource AccentBrush}"
+                            BorderThickness="1" CornerRadius="4"
+                            Padding="16" Margin="20,20,20,10">
+                                    <StackPanel>
+                                        <TextBlock Text="SELECT LOG FILE FOR ANALYSIS" FontSize="12"
+                                       FontWeight="Bold" Foreground="{StaticResource AccentBrush}"
+                                       Margin="0,0,0,10"/>
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="120"/>
+                                                <ColumnDefinition Width="10"/>
+                                                <ColumnDefinition Width="120"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border Grid.Column="0" Background="#FF0A0A1A"
+                                        BorderBrush="{StaticResource PanelBgBrush}"
+                                        BorderThickness="1" CornerRadius="4" Padding="10,8">
+                                                <TextBlock x:Name="txtFrameCounterFilePath"
+                                               Text="No file selected - Click Browse"
+                                               FontSize="11" FontFamily="Consolas"
+                                               Foreground="{StaticResource SubTextBrush}"
+                                               VerticalAlignment="Center"
+                                               TextTrimming="CharacterEllipsis"/>
+                                            </Border>
+
+                                            <Button Grid.Column="1" Content="📁 BROWSE"
+                                        Style="{StaticResource ProfessionalButton}"
+                                        Click="BtnBrowseFrameCounterFile_Click"/>
+
+                                            <Button Grid.Column="3" Content="🔍 ANALYZE"
+                                        Style="{StaticResource ConnectButton}"
+                                        x:Name="btnAnalyzeFrameFile"
+                                        IsEnabled="False"
+                                        Click="BtnAnalyzeFrameFile_Click"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- Analysis results -->
+                                <Border Grid.Row="1" Background="#FF0D1526"
+                            BorderBrush="{StaticResource AccentBrush}"
+                            BorderThickness="1" CornerRadius="4"
+                            Margin="20,10,20,20">
+                                    <Grid>
+                                        <!-- Placeholder -->
+                                        <StackPanel x:Name="panelFrameCounterPlaceholder"
+                                        VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <TextBlock Text="📊" FontSize="72" 
+                                           Foreground="{StaticResource PanelBgBrush}"
+                                           HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                                            <TextBlock Text="No file analyzed yet" FontSize="16"
+                                           Foreground="{StaticResource SubTextBrush}"
+                                           HorizontalAlignment="Center"/>
+                                            <TextBlock Text="Select a log file and click ANALYZE"
+                                           FontSize="12" Foreground="{StaticResource SubTextBrush}"
+                                           HorizontalAlignment="Center" Margin="0,5,0,0"/>
                                         </StackPanel>
 
-                                        <StackPanel Grid.Column="1">
-                                            <TextBlock Text="INVALID" FontSize="11"
-                                                       Foreground="{StaticResource SubTextBrush}"
-                                                       HorizontalAlignment="Center"/>
-                                            <TextBlock Text="{Binding Port2.InvalidFrames}" FontSize="28"
-                                                       FontWeight="Bold" FontFamily="Consolas"
-                                                       Foreground="{StaticResource AccentBrush}"
-                                                       HorizontalAlignment="Center"/>
-                                        </StackPanel>
+                                        <!-- Results display -->
+                                        <ScrollViewer x:Name="scrollFrameCounterResults"
+              Visibility="Collapsed"
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Auto"
+              Margin="10">
+                                            <StackPanel Margin="10">
+
+                                                <!-- Single display TextBox - shows everything -->
+                                                <TextBox x:Name="txtFrameCounterDisplay"
+                 FontSize="11" FontFamily="Consolas"
+                 Foreground="{StaticResource SubTextBrush}"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 IsReadOnly="True"
+                 TextWrapping="NoWrap"
+                 VerticalScrollBarVisibility="Auto"
+                 HorizontalScrollBarVisibility="Auto"/>
+
+                                                <!-- Action buttons -->
+                                                <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center" 
+                    Margin="0,15,0,0">
+                                                    <Button Content="OPEN LOG FILE"
+                    Style="{StaticResource ProfessionalButton}"
+                    Width="150" Margin="0,0,10,0"
+                    Click="BtnOpenFrameCounterLog_Click"/>
+                                                    <Button Content="OPEN LOG FOLDER"
+                    Style="{StaticResource ProfessionalButton}"
+                    Width="150"
+                    Click="BtnOpenFrameCounterLogFolder_Click"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </ScrollViewer>
                                     </Grid>
-                                </StackPanel>
-                            </Border>
+                                </Border>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Border>

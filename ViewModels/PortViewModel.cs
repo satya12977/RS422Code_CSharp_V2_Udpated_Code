@@ -333,11 +333,66 @@ namespace ANVESHA_TCRX_HEALTH_STATUS_GUI_V2.ViewModels
                 return false;
             }
 
+            // ══════════════════════════════════════════════════════════════
+            // FIX 1: Reset frame counter
+            // ══════════════════════════════════════════════════════════════
+            Interlocked.Exchange(ref _rxFrameNumber, 0);
+
+            // ══════════════════════════════════════════════════════════════
+            // FIX 2: Clear all buffers and old data
+            // ══════════════════════════════════════════════════════════════
+            lock (_pendingLock)
+            {
+                _pendingRawLines.Clear();
+                _pendingPayloadLines.Clear();
+                _pendingRxCompactLines.Clear();
+                _pendingRxLiveLatest = null;
+            }
+
+            _rawUiLines.Clear();
+            _payloadUiLines.Clear();
+            _rxCompactUiLines.Clear();
+
+            RawLog = string.Empty;
+            PayloadLog = string.Empty;
+            RxLiveLog = string.Empty;
+            RxCompactLog = string.Empty;
+            LatestFields = null;
+
+            // ══════════════════════════════════════════════════════════════
+            // FIX 3: Create new log files with unique timestamp
+            // ══════════════════════════════════════════════════════════════
+            string baseDir = System.IO.Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "Logs",
+                DateTime.Now.ToString("yyyyMMdd_HHmmss"));
+
+            RawLogFilePath = System.IO.Path.Combine(
+                baseDir,
+                string.Format("PORT{0}_RAW_FRAMES.txt", PortNumber));
+
+            PayloadLogFilePath = System.IO.Path.Combine(
+                baseDir,
+                string.Format("PORT{0}_PAYLOAD.txt", PortNumber));
+
+            RxLiveLogFilePath = System.IO.Path.Combine(
+                baseDir,
+                string.Format("PORT{0}_RXLIVE.txt", PortNumber));
+
             if (!OpenLoggers())
             {
                 StatusText = string.Format(
                     "PORT {0}: Cannot create log files!", PortNumber);
                 return false;
+            }
+
+            // ══════════════════════════════════════════════════════════════
+            // FIX 4: Reset SerialPortManager counters
+            // ══════════════════════════════════════════════════════════════
+            if (_portManager != null)
+            {
+                // Reset internal counters (add this method to SerialPortManager)
+                _portManager.ResetCounters();
             }
 
             bool ok = _portManager.Connect(
@@ -348,6 +403,12 @@ namespace ANVESHA_TCRX_HEALTH_STATUS_GUI_V2.ViewModels
             {
                 IsConnected = true;
                 _uiUpdateTimer.Start();
+
+                // ══════════════════════════════════════════════════════════
+                // FIX 5: Refresh stats immediately to show zeros
+                // ══════════════════════════════════════════════════════════
+                RefreshStats();
+
                 StatusText = string.Format(
                     "PORT {0}: Connected [{1}] @ {2} baud  RS422",
                     PortNumber, SelectedPort, SelectedBaudRate);

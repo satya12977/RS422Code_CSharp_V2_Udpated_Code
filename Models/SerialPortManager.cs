@@ -169,6 +169,13 @@ namespace ANVESHA_TCRX_HEALTH_STATUS_GUI_V2.Models
             }
         }
 
+        public void ResetCounters()
+        {
+            Interlocked.Exchange(ref _totalFrames, 0);
+            Interlocked.Exchange(ref _validFrames, 0);
+            Interlocked.Exchange(ref _invalidFrames, 0);
+        }
+
         // ── Frame extraction ───────────────────────────────────────────────
         private void ProcessAccumulatedBytes()
         {
